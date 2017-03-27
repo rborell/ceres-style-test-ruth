@@ -32,5 +32,11 @@ class CeresTestRuthServiceProvider extends ServiceProvider
             $container->setTemplate("CeresTestRuth::Homepage.Homepage");
             return false;
         });
+
+        // provide template to use for homepage
+        $eventDispatcher->listen('IO.tpl.category.item', function(TemplateContainer $container, $templateData) {
+            $container->setTemplate("CeresTestRuth::Category.Item.CategoryItem");
+            return false;
+        });
     }
 }
